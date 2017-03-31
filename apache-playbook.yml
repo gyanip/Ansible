@@ -1,0 +1,8 @@
+---
+- hosts: all
+
+  vars:
+   - website_dir: /var/www/oursite.dev/web
+
+  roles:
+   - apache
