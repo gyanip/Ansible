@@ -1,0 +1,21 @@
+---
+# Create a group for every user and make that their primary group
+users_create_per_user_group: true
+
+#If we're not creating a per-user group, then this is the group all users belong to
+users_group: users
+
+#The default shell for a user if none is specified
+users_default_shell: /bin/bash
+
+#Create home dirs for new users ? Set this to false if you manage home directories is some other way
+users_create_homedirs: true
+
+users:
+ - username: rame
+   name: "rame pillala"
+   groups: ['sudo']
+   uid: 2001
+   password: $6$zoc/O0pP6.r1$DTYE6yAUfVuwNDYpaw6BY6bvwiuHUZqeXaspK8BygxGzI.ZdkjI8NX8nGLkvwt6JQmmkzA4FDS7vXVukw2FKq.
+   ssh_key:
+    - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBjERMsrO3xtTOnYSW28ZsJdshpesAnFDWmdOL8EK2OLtC6vG8iVv0we+EavRhuq1KrWCoq1ZKrUa2JJiYpW51xEcoF+ni5Jeh6AJBfz6VPIs0ij8/jkYPWRbmk3aOOf+txaU7eO+27qd2ZAZhHJEKvJGf+/kOU4IYOWMGboUDLHwrxYZaggaWECurYf5wPJ9M/RsmTNIaZg7S7FApAwThcfgBcNYiTZ5Yg9rAPNIwRcsefQDvWBzGs2NKyrLjmNhpIE6f+ZRI49NglbXvt2TLU2VLITZwncuzR/0YnRN4/nnvyETw/qBIhxEoK2K7nvbW+3kiav4EFV/4+PjIcdvt sysadmin@ubuntu-dev1"

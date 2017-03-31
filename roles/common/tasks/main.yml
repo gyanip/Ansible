@@ -17,13 +17,13 @@
    name=sudo
    state=present
 
-- name: Create a new user
-  user:
-   name={{ user_name }}
-   state=present
-   groups="sudo"
-   shell=/bin/zsh
-   password=$6$DDYFfY5.$E8.FbXHdRHsJiNBNkQsFLY8AkUriPT4naXMwQoo8XK3yG/5TL0hxSXmEgTygU.BdghC7FoDcAY2BMncikjtii.
+#- name: Create a new user
+#  user:
+#   name={{ user_name }}
+#  state=present
+#  groups="sudo"
+#  shell=/bin/zsh
+#  password=$6$DDYFfY5.$E8.FbXHdRHsJiNBNkQsFLY8AkUriPT4naXMwQoo8XK3yG/5TL0hxSXmEgTygU.BdghC7FoDcAY2BMncikjtii.
 
 - name: Create home directory folder structure
   file: path=/home/{{ user_name }}/{{ item }}
