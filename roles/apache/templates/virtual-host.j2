@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName {{ our_domain }}
+    ServerAlias {{ our_domain }}
+
+    DocumentRoot /var/www/{{ our_domain}}/web
+    <Directory /var/www/{{ our_domain}}/web>
+	#enabled the .htaccess rewrites
+	AllowOverride All
+	Require all granted
+	Allow from All
+    </Directory>
+
+    ErrorLog /var/log/apache2/{{ our_domain | replace(".", "_") }}_error.log
+    CustomLog /var/log/apache2/{{ our_domain | replace(".", "_") }}_access.log combined
+</VirtualHost>

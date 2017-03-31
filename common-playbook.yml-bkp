@@ -1,0 +1,40 @@
+---
+- hosts: all
+
+  vars:
+   - user_name: rame
+
+  tasks:
+     - name: Install common software requirements
+       apt: pkg={{ item }} state=installed
+       with_items:
+        - git
+        - htop
+        - vim
+        - curl
+        - sudo
+        - zsh
+
+     - name: Create the sudo group
+       group:
+        name=sudo
+        state=present
+
+     - name: Create a new user
+       user:
+        name={{ user_name }}
+        state=present
+        groups="sudo"
+        shell=/bin/zsh
+        password=$6$DDYFfY5.$E8.FbXHdRHsJiNBNkQsFLY8AkUriPT4naXMwQoo8XK3yG/5TL0hxSXmEgTygU.BdghC7FoDcAY2BMncikjtii.
+
+     - name: Create home directory folder structure
+       file: path=/home/{{ user_name }}/{{ item }}
+        state=directory
+        owner={{ user_name }}
+        group={{ user_name }}
+        mode=0700
+       with_items:
+          - src
+          - backups
+          - bin

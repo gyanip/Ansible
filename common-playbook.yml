@@ -1,7 +1,8 @@
 ---
 - hosts: all
-  tasks:
-     - name: Install common software requirements
-       apt: pkg={{ item }} state=installed
-       with_items:
-        - git
+
+  vars:
+   - user_name: rame
+
+  roles:
+   - common
